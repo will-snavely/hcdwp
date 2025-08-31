@@ -27,6 +27,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
-          context: "{{defaultContext}}:wordpress-apache"
+          context: "{{defaultContext}}:wordpress_apache"
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/wordpress-apache:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/wordpress_apache:latest
