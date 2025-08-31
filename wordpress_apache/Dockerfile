@@ -4,6 +4,7 @@ ENV WORDPRESS_DB_HOST=""
 ENV WORDPRESS_DB=""
 ENV WORDPRESS_DB_USER=""
 ENV WORDPRESS_DB_PASSWORD_FILE: ""
+ENV WORDPRESS_HOME: "/src/www/wordpress"
 
 RUN apt-get update && apt-get -y install apache2 \
 	python3 \
