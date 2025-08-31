@@ -24,14 +24,14 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build and push: wordpress_apache
+      - name: "Build and push: wordpress_apache"
         uses: docker/build-push-action@v6
         with:
           context: "{{defaultContext}}:wordpress_apache"
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/wordpress_apache:latest
 
-      - name: Build and push: wordpress_apache_dev
+      - name: "Build and push: wordpress_apache_dev"
         uses: docker/build-push-action@v6
         with:
           context: "{{defaultContext}}:wordpress_apache_dev"
