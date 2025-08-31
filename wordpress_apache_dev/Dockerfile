@@ -7,3 +7,4 @@ ENV NVM_DIR=/root/.nvm
 RUN bash -c "source $NVM_DIR/nvm.sh && nvm install $NODE_VERSION"
 COPY install_composer.sh install_composer.sh
 RUN bash install_composer.sh && mv composer.phar /usr/local/bin/composer
+CMD "/app/entry.sh"
