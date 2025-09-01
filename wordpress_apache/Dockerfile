@@ -30,6 +30,12 @@ COPY gen_php_config.py gen_php_config.py
 RUN curl https://wordpress.org/latest.tar.gz | tar zx -C /srv/www
 
 USER root
+
 COPY wordpress.conf /etc/apache2/sites-available/wordpress.conf
 RUN a2ensite wordpress && a2enmod rewrite && a2dissite 000-default
+
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
+	chmod +x wp-cli.phar && \
+	mv wp-cli.phar /usr/local/bin/wp
+
 CMD "/app/entry.sh"
