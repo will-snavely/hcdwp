@@ -25,8 +25,7 @@ RUN chmod +x /app/entry.sh
 
 RUN mkdir -p /srv/www && chown www-data: /srv/www
 USER www-data
-WORKDIR /srv/www
-COPY gen_php_config.py gen_php_config.py
+COPY gen_php_config.py /app/gen_php_config.py
 RUN curl https://wordpress.org/latest.tar.gz | tar zx -C /srv/www
 
 USER root
