@@ -5,8 +5,9 @@ RUN apt-get update && apt-get install unzip
 
 USER www-data
 WORKDIR /srv/www
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash 
+RUN mkdir /srv/www/.nvm
 ENV NVM_DIR=/srv/www/.nvm
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash 
 RUN bash -c "source $NVM_DIR/nvm.sh && nvm install $NODE_VERSION"
 
 USER root
