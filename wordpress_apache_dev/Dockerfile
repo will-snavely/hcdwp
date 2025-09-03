@@ -2,11 +2,12 @@ from horsecatdog/wordpress_apache:latest
 ARG NODE_VERSION=24.7.0
 
 RUN apt-get update && apt-get install unzip
+RUN chown -R www-data /var/www && chmod -R 755 /var/www
 
 USER www-data
-WORKDIR /srv/www
-RUN mkdir /srv/www/.nvm
-ENV NVM_DIR=/srv/www/.nvm
+WORKDIR /var/www
+RUN mkdir /var/www/.nvm
+ENV NVM_DIR=/var/www/.nvm
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash 
 RUN bash -c "source $NVM_DIR/nvm.sh && nvm install $NODE_VERSION"
 
