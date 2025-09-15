@@ -45,3 +45,9 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/bedrock:latest
 
+      - name: "Build and push: web_apache_php"
+        uses: docker/build-push-action@v6
+        with:
+          context: "{{defaultContext}}:web_apache_php"
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/web_apache_php:latest
