@@ -37,3 +37,11 @@ jobs:
           context: "{{defaultContext}}:wordpress_apache_dev"
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/wordpress_apache_dev:latest
+
+      - name: "Build and push: bedrock"
+        uses: docker/build-push-action@v6
+        with:
+          context: "{{defaultContext}}:bedrock"
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/bedrock:latest
+
