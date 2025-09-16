@@ -19,7 +19,9 @@ RUN apt-get update && apt-get -y install apache2 \
     php-mysql \
     php-xml \
     php-zip \
-    curl
+    curl \
+    less \
+    rsync
 
 WORKDIR /app
 COPY install_composer.sh install_composer.sh
