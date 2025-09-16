@@ -7,6 +7,7 @@ ENV WORDPRESS_DB_PASSWORD_FILE: ""
 ENV WORDPRESS_ROOT="/srv/www/wordpress"
 
 RUN apt-get update && apt-get -y install apache2 \
+    python3 \
 	libapache2-mod-php \
     php \
     php-bcmath \
