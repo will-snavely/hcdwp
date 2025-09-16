@@ -14,7 +14,8 @@ RUN apt-get update && apt-get -y install \
     php-mysql \
     php-xml \
     php-zip \
-    curl
+    curl \
+    less
 
 WORKDIR /app
 COPY install_composer.sh install_composer.sh
