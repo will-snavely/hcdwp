@@ -1,6 +1,5 @@
 FROM debian
 ENV DEBIAN_FRONTEND=noninteractive
-ARG NODE_VERSION=24.7.0
 
 RUN apt-get update && apt-get -y install \
     apache2 \
@@ -18,7 +17,9 @@ RUN apt-get update && apt-get -y install \
     php-xml \
     php-zip \
     curl \
-    less
+    less \
+    nodejs \
+    npm
 
 WORKDIR /app
 COPY install_composer.sh install_composer.sh
@@ -35,12 +36,11 @@ RUN groupadd -r devs && \
     useradd -m -s /usr/bin/bash -r -g devs dev && \
     usermod -aG devs www-data
 
-WORKDIR /home/dev
-USER dev
-ENV NVM_DIR=/home/dev/.nvm
-ENV PATH="$NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH"
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash 
-RUN bash -c "source $NVM_DIR/nvm.sh && nvm install $NODE_VERSION"
+#WORKDIR /home/dev
+#USER dev
+#ENV NVM_DIR=/home/dev/.nvm
+#ENV PATH="$NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH"
+#RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash 
+#RUN bash -c "source $NVM_DIR/nvm.sh && nvm install $NODE_VERSION"
 
-USER root
 CMD "/app/entry.sh"
