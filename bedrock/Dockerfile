@@ -32,15 +32,4 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
     chmod +x wp-cli.phar && \
     mv wp-cli.phar /usr/local/bin/wp
 
-RUN groupadd -r devs && \
-    useradd -m -s /usr/bin/bash -r -g devs dev && \
-    usermod -aG devs www-data
-
-#WORKDIR /home/dev
-#USER dev
-#ENV NVM_DIR=/home/dev/.nvm
-#ENV PATH="$NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH"
-#RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash 
-#RUN bash -c "source $NVM_DIR/nvm.sh && nvm install $NODE_VERSION"
-
 CMD "/app/entry.sh"
