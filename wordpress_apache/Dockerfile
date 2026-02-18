@@ -30,7 +30,6 @@ COPY gen_php_config.py /app/gen_php_config.py
 RUN curl https://wordpress.org/latest.tar.gz | tar zx -C /srv/www
 
 USER root
-
 COPY wordpress.conf /etc/apache2/sites-available/wordpress.conf
 RUN a2ensite wordpress && a2enmod rewrite && a2dissite 000-default
 
