@@ -21,6 +21,9 @@ RUN apt-get update && apt-get -y install \
     nodejs \
     npm
 
+RUN curl -1sLf 'https://dl.cloudsmith.io/public/task/task/setup.deb.sh' | bash
+RUN apt-get update && apt-get install task
+
 WORKDIR /app
 COPY install_composer.sh install_composer.sh
 RUN bash install_composer.sh && mv composer.phar /usr/local/bin/composer
@@ -32,4 +35,4 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
     chmod +x wp-cli.phar && \
     mv wp-cli.phar /usr/local/bin/wp
 
-CMD "/app/entry.sh"
+CMD ["/app/entry.sh"]
