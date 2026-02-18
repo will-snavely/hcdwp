@@ -21,9 +21,6 @@ RUN apt-get update && apt-get -y install \
     nodejs \
     npm
 
-RUN curl -1sLf 'https://dl.cloudsmith.io/public/task/task/setup.deb.sh' | bash
-RUN apt-get update && apt-get install task
-
 WORKDIR /app
 COPY install_composer.sh install_composer.sh
 RUN bash install_composer.sh && mv composer.phar /usr/local/bin/composer

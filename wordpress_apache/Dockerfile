@@ -20,6 +20,7 @@ RUN apt-get update && apt-get -y install apache2 \
         php-xml \
         php-zip \
         curl
+
 COPY entry.sh /app/entry.sh
 RUN chmod +x /app/entry.sh
 
